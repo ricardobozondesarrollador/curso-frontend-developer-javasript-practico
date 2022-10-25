@@ -16,6 +16,12 @@
       margin: 0;
       font-family: 'Quicksand', sans-serif;
     }
+
+    .inactive{           /*inactiva el menu emergente de la clase 7*/
+      display: none;
+      
+
+    }
     nav {
       display: flex;
       justify-content: space-between;
@@ -58,6 +64,7 @@
     }
     .navbar-email {
       color: var(--very-light-pink);
+      cursor: pointer;
       font-size: var(--sm);
       margin-right: 12px;
     }
@@ -81,8 +88,13 @@
 /*----------------FIN ESTILOS GLOBALESy----------------------------------------------*/
 
 
-/*----------------Iicio clase 7----------------------------------------------*/
+/*----------------Iicio menu clase 7----------------------------------------------*/
     .desktop-menu {
+        position: absolute;
+  
+        top: 60px;
+        right: 60px;
+        background:  var(--white);
         width: 100px;
         height: auto;
         border: 1px solid var(--very-light-pink);
@@ -115,7 +127,7 @@
         margin-bottom: 20px;
         display: inline-block;
       }
-/*----------------fin clase 7----------------------------------------------*/
+/*----------------fin menu clase 7----------------------------------------------*/
 
 
 
@@ -129,6 +141,7 @@
         display: none;
       }
       .navbar-email {
+       
         display: none;
       }
     }
