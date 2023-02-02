@@ -5,7 +5,6 @@ const menuCarritoIcon=document.querySelector('.navbar-shopping-cart');
 const mobileMenu=document.querySelector('.mobile-menu');
 
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const  productDetailContainer= document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -47,11 +46,6 @@ function toggleCarritoAside (){
 
 }
 
-function openProductDetailAside(){
-  productDetailContainer.classList.remove('inactive');
-
-}
-
 const productList = [];
 productList.push({
 
@@ -76,42 +70,39 @@ productList.push({
 
 });
 
-function renderproducts(arr){
-  for (product of arr){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-    
-    //produc ={name,price,image}--> product.image
-    const productImg  = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', openProductDetailAside);
+for (product of productList){
+  const productCard = document.createElement('div');
+  productCard.classList.add('product-card');
 
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+  const productImg  = document.createElement('img');
+  productImg.setAttribute('src', product.image);
 
-    const productInfoDiv =document.createElement('div');
+  const productInfo = document.createElement('div');
+  productInfo.classList.add('product-info');
 
-    const productPrice=document.createElement ('p');
-    productPrice.innerText= '$' + product.price;
-    const productName =document.createElement ('p');
-    productName.innerText=  product.name;
+  const productInfoDiv =document.createElement('div');
 
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
+  const productPrice=document.createElement ('p');
+  productPrice.innerText= '$' + product.price;
 
-    const productInfoFigure =document.createElement ('figure');
-    const productImgCart =document.createElement ('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+  const productName =document.createElement ('p');
+  productName.innerText=  product.name;
+  productInfoDiv.appendChild(productPrice);
+  productInfoDiv.appendChild(productName);
 
-    productInfoFigure.appendChild(productImgCart);
+  const productInfoFigure =document.createElement ('figure');
+  const productImgCart =document.createElement ('img');
+  productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
+  productInfoFigure.appendChild(productImgCart);
 
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
+  productInfo.appendChild(productInfoDiv);
+  productInfo.appendChild(productInfoFigure);
 
-    cardsContainer.appendChild(productCard);
-  }
+  productCard.appendChild(productImg);
+  productCard.appendChild(productInfo);
+
+  cardsContainer.appendChild(productCard);
 }
+
 
